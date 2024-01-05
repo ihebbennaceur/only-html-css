@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        body {
+            font-family: 'Montserrat';
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eff5fb;
+        }
+    
+        header {
+            background-color: #014788;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #212529;
+            margin: 0 15px;
+        }
+    
+        nav {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+                background-color: #014788;
+                color: #ffffff;
+                text-align: center;
+                padding:1%;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+        }
+    
+        main {
+            display: flex;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        main form {
+            flex: 1; /* Take up all available space within the main container */
+            padding: 20px; /* Apply the padding to the form */
+            text-align: center;
+        }
+        
+        /* The rest of your styles remain unchanged */
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        select, input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        
+        input[type="reset"],
+        input[type="submit"] {
+            background-color: #014788;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        /* Center both buttons */
+        form input[type="reset"],
+        form input[type="submit"] {
+            display: inline-block;
+            margin: 0 auto;
+        }
+        
+        
+        input[type="reset"]:hover,
+        input[type="submit"]:hover {
+            background-color: #5685b1;
+        }
+
+        .bouton {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #014788; 
+            color: #ffffff; 
+            text-decoration: none; /* supprimer le soulignement du lien */
+            border: none; /* supprimer la bordure du bouton */
+            border-radius: 5px; /* coins arrondis */
+        }
+        
+        .bouton:hover {
+            background-color: #5685b1; /* nouvelle couleur de fond lors du survol */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Se connecter</h1>
+        <nav>
+            <a href="Accueil.html">Accueil</a>
+            <a href="dispo.html">Logements disponibles</a>
+            <a href="A propos.html">À propos</a>
+            <a href="Aide.html">Aide</a>
+            <a href="seconnecter.html" style="color: black;">
+                <span style="font-size: 20px;">👤</span>
+            </a>
+        </nav>
+    </header>
+    <main>
+        <form id="connexionForm" onsubmit="SeConnecter();">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="username" required> <br>
+        <br>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" name="password" required> <br>
+        <br>
+        <input type="submit" value="Login">
+        <br>
+        <p>Cliquez ici pour créer un compte</p> 
+        <a href="créer_compte.html" class="bouton">Créer un compte</a>
+    </form>
+</main>
+    <script>
+        function SeConnecter() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+            for (var i = 0; i < storedAccounts.length; i++) {
+                var account = storedAccounts[i];
+                if (account.username === username && account.password === password) {
+                    alert("Authentification réussie!");
+                    return;
+                }
+            }
+
+            alert("Échec de l'authentification. Veuillez créer un compte.");
+        }
+    </script>
+
+<footer>
+    &copy; 2024 LocaLuxe - Tous droits réservés
+</footer>
+
+</body>
+</html>

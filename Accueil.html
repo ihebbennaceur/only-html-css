@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocaLuxe</title>
+    <style>
+       
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    body {
+        font-family: 'Montserrat';
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #eff5fb;
+    }
+
+    header {
+        background-color: #014788;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+    }
+    nav a {
+        text-decoration: none;
+        color: #212529;
+        margin: 0 15px;
+    }
+
+    nav {
+        background-color: #f8f9fa;
+        padding: 10px;
+        text-align: center;
+    }
+    footer {
+            background-color: #014788;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+    }
+
+main {
+    display: flex;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+main form {
+    flex: 1;
+    padding: 20px; 
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+select, input[type="date"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+input[type="reset"],
+input[type="submit"] {
+    background-color: #014788;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form input[type="reset"],
+form input[type="submit"] {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background-color: #5685b1;
+}
+
+
+</style>
+    
+</head>
+<body>
+    <header>
+        <h1>LocaLuxe</h1>
+        <nav>
+            <nav>
+                <a href="Accueil.html">Accueil</a>
+                <a href="dispo.html">Logements disponibles</a>
+                <a href="A propos.html">À propos</a>
+                <a href="Aide.html">Aide</a>
+                <a href="seconnecter.html" style="color: black;">
+                    <span style="font-size: 20px;">👤</span>
+                </a>
+            </nav>
+    </header>
+<main>
+    <form action="dispo.html" method="post">
+        <b><label for="typeLogement">Type de logement :</label><br></b>
+            <select id="typeLogement">
+                <option value="villa">Villa</option>
+                <option value="appartement">Appartement</option>
+                <option value="maison">Maison</option>
+            </select><br>
+            <b><label for="duree">Durée de séjour :</label> <br></b>
+            <input type="date" id="dateDepart" name="dateDepart" placeholder="Date de départ"><br>
+            <input type="date" id="dateArrivee" name="dateArrivee" placeholder="Date d'arrivée"><br>
+
+            <b><label for="nombrePersonnes">Nombre de personnes :</label><br></b>
+            <input type="number" max="20"> <br>
+            <input type="reset" value="Rafraîchir"> 
+            <input type="submit" value="Enregistrer demande"> 
+    </form>
+</main>
+
+    <footer>
+        &copy; 2024 LocaLuxe - Tous droits réservés
+    </footer>
+
+</body>
+</html>

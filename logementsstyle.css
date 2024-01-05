@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+body {
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #014788;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+nav a {
+    text-decoration: none;
+    color: #212529;
+    margin: 0 15px;
+}
+
+nav {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+}
+
+
+main {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.property-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+    grid-auto-rows: minmax(200px, 1fr); /* Hauteur minimale de 200px, élargit automatiquement */
+    gap: 10px; /* Espacement entre les images en pixels */
+    text-align: left; /* Alignement à gauche */
+    margin: auto;
+}
+
+.property-images img {
+    width: 100%;
+    height: 200px; /* Définissez une hauteur fixe pour toutes les images, ajustez selon vos besoins */
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.property-details {
+    flex: 1;
+    padding: 20px;
+    margin-left: 70px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.details-section {
+    margin-top: 20px;
+}
+
+.details-section h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.details-section p {
+    margin: 0;
+    color: #555;
+}
+
+.commodites ul {
+    padding: 1;
+    margin: 0;
+}
+
+.commodites li {
+    margin-bottom: 5px;
+}
+
+.price {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+}
+
+.review-section {
+    margin-top: 30px;
+}
+
+.review-section h3 {
+    color: #333;
+}
+
+.review {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.review p {
+    margin: 0;
+    color: #555;
+}
+
+.review-author {
+    text-align: right;
+    font-style: italic;
+    color: #777;
+}
+
+.reserve-button {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:  #eff5fb;
+    color: #014788;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.reserve-button:hover {
+    background-color: #bddbfa;
+}
+
+footer {
+    background-color: #014788;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

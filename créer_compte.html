@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>créer un compte</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        body {
+            font-family: 'Montserrat';
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #eff5fb;
+        }
+    
+        header {
+            background-color: #014788;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #212529;
+            margin: 0 15px;
+        }
+    
+        nav {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer {
+                background-color: #014788;
+                color: #ffffff;
+                text-align: center;
+                padding:1%;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+        }
+    
+        main {
+            display: flex;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        main form {
+            flex: 1; 
+            padding: 20px; 
+            text-align: center;
+        }
+        
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        select, input[type="date"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+        
+        input[type="reset"],
+        input[type="submit"] {
+            background-color: #014788;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        form input[type="reset"],
+        form input[type="submit"] {
+            display: inline-block;
+            margin: 0 auto;
+        }
+        
+        
+        input[type="reset"]:hover,
+        input[type="submit"]:hover {
+            background-color: #5685b1;
+        }
+
+        #dateNaissance {
+            width: 150px; 
+        }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Créer un compte</h1>
+        <nav>
+            <a href="Accueil.html">Accueil</a>
+            <a href="dispo.html">Logements disponibles</a>
+            <a href="A propos.html">À propos</a>
+            <a href="Aide.html">Aide</a>
+            <a href="seconnecter.html" style="color: black;">
+                <span style="font-size: 20px;">👤</span>
+            </a>
+        </nav>
+    </header>
+    <main>
+    <form id="inscriptionForm" method="post" onsubmit="addAccount();">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+
+        <label for="dateNaissance">Date de Naissance :</label>
+        <input type="date" id="dateNaissance" name="dateNaissance" required>
+
+        <label for="tel">Numéro de Téléphone :</label>
+        <input type="tel" id="tel" name="tel" pattern="[0-9]{8}" required>
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="motDePasse">Mot de passe :</label>
+        <input type="password" id="motDePasse" name="motDePasse" required> <br>
+        <br>
+        <input type="submit" value="S'inscrire">
+        <input type="reset" value="Rafraîchir">
+    </form>
+</main>
+    <script>
+        function addAccount() {
+            var newUsername = document.getElementById("email").value;
+            var newPassword = document.getElementById("motDePasse").value;
+
+            var storedAccounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+            if (storedAccounts.some(account => account.username === newUsername)) {
+                alert("Cet e-mail existe déjà. Veuillez choisir un autre.");
+                return;
+            }
+
+            storedAccounts.push({ username: newUsername, password: newPassword });
+
+            localStorage.setItem("accounts", JSON.stringify(storedAccounts));
+
+            alert("Compte ajouté avec succès!");
+        }
+    </script>
+
+<footer>
+    &copy; 2024 LocaLuxe - Tous droits réservés
+</footer>
+
+</body>
+
+</html>
+
